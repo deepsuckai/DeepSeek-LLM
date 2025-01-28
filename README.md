@@ -14,7 +14,7 @@
   <a href="https://chat.deepseek.com/" target="_blank">
     <img alt="Chat" src="https://img.shields.io/badge/🤖%20Chat-DeepSeek%20LLM-536af5?color=536af5&logoColor=white" />
   </a>
-  <a href="https://huggingface.co/deepseek-ai" target="_blank">
+  <a href="https://huggingface.co/deepsuckai" target="_blank">
     <img alt="Hugging Face" src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-DeepSeek%20AI-ffc107?color=ffc107&logoColor=white" />
   </a>
 
@@ -82,10 +82,10 @@ We release the DeepSeek LLM 7B/67B, including both base and chat models, to the 
 
 |         Model         | Sequence Length |                                Download                                 |
 |:---------------------:|:---------------:|:-----------------------------------------------------------------------:|
-| DeepSeek LLM 7B Base  |      4096       | 🤗 [HuggingFace](https://huggingface.co/deepseek-ai/deepseek-llm-7b-base)  |
-| DeepSeek LLM 7B Chat  |      4096       | 🤗 [HuggingFace](https://huggingface.co/deepseek-ai/deepseek-llm-7b-chat)  |
-| DeepSeek LLM 67B Base |      4096       | 🤗 [HuggingFace](https://huggingface.co/deepseek-ai/deepseek-llm-67b-base) |
-| DeepSeek LLM 67B Chat |      4096       | 🤗 [HuggingFace](https://huggingface.co/deepseek-ai/deepseek-llm-67b-chat) |
+| DeepSeek LLM 7B Base  |      4096       | 🤗 [HuggingFace](https://huggingface.co/deepsuckai/deepseek-llm-7b-base)  |
+| DeepSeek LLM 7B Chat  |      4096       | 🤗 [HuggingFace](https://huggingface.co/deepsuckai/deepseek-llm-7b-chat)  |
+| DeepSeek LLM 67B Base |      4096       | 🤗 [HuggingFace](https://huggingface.co/deepsuckai/deepseek-llm-67b-base) |
+| DeepSeek LLM 67B Chat |      4096       | 🤗 [HuggingFace](https://huggingface.co/deepsuckai/deepseek-llm-67b-chat) |
 
 ### Intermediate Checkpoints
 
@@ -95,10 +95,10 @@ We host the intermediate checkpoints of DeepSeek LLM 7B/67B on AWS S3 (Simple St
 # using AWS CLI
 
 # DeepSeek-LLM-7B-Base
-aws s3 cp s3://deepseek-ai/DeepSeek-LLM/DeepSeek-LLM-7B-Base <local_path> --recursive --request-payer
+aws s3 cp s3://deepsuckai/DeepSeek-LLM/DeepSeek-LLM-7B-Base <local_path> --recursive --request-payer
 
 # DeepSeek-LLM-67B-Base
-aws s3 cp s3://deepseek-ai/DeepSeek-LLM/DeepSeek-LLM-67B-Base <local_path> --recursive  --request-payer
+aws s3 cp s3://deepsuckai/DeepSeek-LLM/DeepSeek-LLM-67B-Base <local_path> --recursive  --request-payer
 ```
 
 ## 3. Evaluation Results
@@ -132,7 +132,7 @@ In line with Grok-1, we have evaluated the model's mathematical capabilities usi
   <img src="images/mathexam.png" alt="result" width="70%">
 </div>
 
-**Remark:** We have rectified an error from our initial evaluation. In this revised version, we have omitted the lowest scores for questions 16, 17, 18, as well as for the aforementioned image.   Evaluation details are [here](https://github.com/deepseek-ai/DeepSeek-LLM/tree/HEAD/evaluation/hungarian_national_hs_solutions).
+**Remark:** We have rectified an error from our initial evaluation. In this revised version, we have omitted the lowest scores for questions 16, 17, 18, as well as for the aforementioned image.   Evaluation details are [here](https://github.com/deepsuckai/DeepSeek-LLM/tree/HEAD/evaluation/hungarian_national_hs_solutions).
 
 
 ---
@@ -164,7 +164,7 @@ The specific questions and test cases will be released soon. Stay tuned!
 | DeepSeek LLM 7B Chat  | 57.9     | 49.4 | 62.6  | 48.2      | 42.3 | 47.0   | 49.7  |  75.0 |
 | DeepSeek LLM 67B Chat | 81.5     | 71.1 | 84.1  | 73.8      | 71.7 | 65.2   | 67.8  |  85.1 |
 
-**Note:** We evaluate chat models with 0-shot for MMLU, GSM8K, C-Eval, and CMMLU. More evaluation results can be found [here](https://github.com/deepseek-ai/DeepSeek-LLM/blob/HEAD/evaluation/more_results.md).
+**Note:** We evaluate chat models with 0-shot for MMLU, GSM8K, C-Eval, and CMMLU. More evaluation results can be found [here](https://github.com/deepsuckai/DeepSeek-LLM/blob/HEAD/evaluation/more_results.md).
 
 **Revisit Multi-Choice Question Benchmarks**
 
@@ -227,7 +227,7 @@ You can directly employ [Huggingface's Transformers](https://github.com/huggingf
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, GenerationConfig
 
-model_name = "deepseek-ai/deepseek-llm-67b-base"
+model_name = "deepsuckai/deepseek-llm-67b-base"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype=torch.bfloat16, device_map="auto")
 model.generation_config = GenerationConfig.from_pretrained(model_name)
@@ -247,7 +247,7 @@ print(result)
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, GenerationConfig
 
-model_name = "deepseek-ai/deepseek-llm-67b-chat"
+model_name = "deepsuckai/deepseek-llm-67b-chat"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype=torch.bfloat16, device_map="auto")
 model.generation_config = GenerationConfig.from_pretrained(model_name)
@@ -282,7 +282,7 @@ from vllm import LLM, SamplingParams
 
 tp_size = 4 # Tensor Parallelism
 sampling_params = SamplingParams(temperature=0.7, top_p=0.9, max_tokens=100)
-model_name = "deepseek-ai/deepseek-llm-67b-base"
+model_name = "deepsuckai/deepseek-llm-67b-base"
 llm = LLM(model=model_name, trust_remote_code=True, gpu_memory_utilization=0.9, tensor_parallel_size=tp_size)
 
 prompts = [
@@ -304,7 +304,7 @@ from vllm import LLM, SamplingParams
 
 tp_size = 4 # Tensor Parallelism
 sampling_params = SamplingParams(temperature=0.7, top_p=0.9, max_tokens=100)
-model_name = "deepseek-ai/deepseek-llm-67b-chat"
+model_name = "deepsuckai/deepseek-llm-67b-chat"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 llm = LLM(model=model_name, trust_remote_code=True, gpu_memory_utilization=0.9, tensor_parallel_size=tp_size)
 
@@ -376,17 +376,17 @@ While DeepSeek LLMs have demonstrated impressive capabilities, they are not with
 
 ## 8. License
 
-This code repository is licensed under [the MIT License](https://github.com/deepseek-ai/DeepSeek-LLM/blob/HEAD/LICENSE-CODE). The use of DeepSeek LLM Base/Chat models is subject to [the Model License](https://github.com/deepseek-ai/DeepSeek-LLM/blob/HEAD/LICENSE-MODEL). DeepSeek LLM series (including Base and Chat) supports commercial use.
+This code repository is licensed under [the MIT License](https://github.com/deepsuckai/DeepSeek-LLM/blob/HEAD/LICENSE-CODE). The use of DeepSeek LLM Base/Chat models is subject to [the Model License](https://github.com/deepsuckai/DeepSeek-LLM/blob/HEAD/LICENSE-MODEL). DeepSeek LLM series (including Base and Chat) supports commercial use.
 
 ## 9. Citation
 
 ```
 @article{deepseek-llm,
-  author = {DeepSeek-AI},
+  author = {deepsuckai},
   title = {DeepSeek LLM: Scaling Open-Source Language Models with Longtermism},
   journal = {arXiv preprint arXiv:2401.02954},
   year = {2024},
-  url = {https://github.com/deepseek-ai/DeepSeek-LLM}
+  url = {https://github.com/deepsuckai/DeepSeek-LLM}
 }
 ```
 
