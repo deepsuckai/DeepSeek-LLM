@@ -275,10 +275,6 @@ Assistant:
 
 **Note:** By default (`add_special_tokens=True`), our tokenizer automatically adds a `bos_token` (`<｜begin▁of▁sentence｜>`) before the input text. Additionally, since the system prompt is not compatible with this version of our models, we DO NOT RECOMMEND including the system prompt in your input.
 
-### Inference with vLLM
-
-You can also employ [vLLM](https://github.com/vllm-project/vllm) for high-throughput inference.
-
 **Text Completion**
 
 ```python
@@ -394,6 +390,8 @@ This code repository is licensed under [the MIT License](https://github.com/deep
 }
 ```
 
-## 10. Contact
+## 👋 Contact Here
 
-If you have any questions, please raise an issue or contact us at [service@deepseek.com](mailto:service@deepseek.com).
+### 
+Telegram: https://t.me/earthzeta
+###
