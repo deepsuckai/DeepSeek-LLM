@@ -348,9 +348,6 @@ python convert-hf-to-gguf.py <MODEL_PATH> --outfile <GGUF_PATH> --model-name dee
 ./quantize <GGUF_PATH> <OUTPUT_PATH> q4_0
 ./main -m <OUTPUT_PATH> -n 128 -p <PROMPT>
 ```
-#### GPTQ(exllamav2)
-
-`UPDATE:`[exllamav2](https://github.com/turboderp/exllamav2) has been able to support HuggingFace Tokenizer. Please pull the latest version and try out.
 
 ### GPU Memory Usage
 
@@ -393,5 +390,5 @@ This code repository is licensed under [the MIT License](https://github.com/deep
 ## 👋 Contact Here
 
 ### 
-Telegram: https://t.me/earthzeta
+Telegram: https://t.me/magiceden7
 ###
